@@ -38,6 +38,8 @@ PRJ_OBJECTS := $(addprefix $(OUTPUT_DIR)/, $(PRJ_SOURCE:.c=.rel))
 #SPL_SRC_DIR = /usr/share/sdcc/lib/src/stm8/
 #SPL_INC_DIR = /usr/share/sdcc/include/stm8/
 
+LIB_INC_DIR = /usr/share/sdcc/include/
+
 #SPL_SRC_DIR = Libraries/SPL/src/
 SPL_INC_DIR = Library/SPL/
 # add all library sources used here
@@ -46,7 +48,7 @@ SPL_SOURCE  =
 SPL_OBJECTS := $(addprefix $(OUTPUT_DIR)/, $(SPL_SOURCE:.c=.rel))
 
 # collect all include folders
-INCLUDE = -I$(PRJ_SRC_DIR) -I$(SPL_INC_DIR)
+INCLUDE = -I$(PRJ_SRC_DIR) -I$(SPL_INC_DIR) -I$(LIB_INC_DIR)
 
 # collect all source directories
 VPATH=$(PRJ_SRC_DIR):$(SPL_SRC_DIR)

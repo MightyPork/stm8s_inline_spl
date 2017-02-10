@@ -181,12 +181,13 @@ typedef enum {
  * Baud rates at 16 MHz
  */
 typedef enum {
-	UART_BAUD_9600 = (uint16_t) 0x0693,
-	UART_BAUD_19200 = (uint16_t) 0x0341,
-	UART_BAUD_57600 = (uint16_t) 0x0116,
-	UART_BAUD_115200 = (uint16_t) 0x0008B,
-	UART_BAUD_230400 = (uint16_t) 0x00045,
-	UART_BAUD_460800 = (uint16_t) 0x00023
+	UART_BAUD_9600 = (uint16_t) 0x0368,
+	UART_BAUD_19200 = (uint16_t) 0x0134,
+	UART_BAUD_57600 = (uint16_t) 0x0611,
+	UART_BAUD_115200 = (uint16_t) 0x0B08,
+	UART_BAUD_230400 = (uint16_t) 0x0504,
+	UART_BAUD_460800 = (uint16_t) 0x0302,
+	UART_BAUD_921600 = (uint16_t) 0x0101
 } UART_Baud_TypeDef;
 
 /**
@@ -196,13 +197,10 @@ typedef enum {
  * @param baud - UART_BAUD_*
  */
 void inline UART_SimpleInit(UART_Baud_TypeDef baud) {
-	UART1->BRR1 = (uint8_t) ((baud) & 0xFF);
 	UART1->BRR2 = (uint8_t) (((baud) >> 8) & 0xFF);
-	UART1->CR2 |= (uint8_t) (UART1_CR2_TEN | UART1_CR2_REN);
-	UART1->CR3 |= (uint8_t) UART1_CR3_CKEN;
+	UART1->BRR1 = (uint8_t) ((baud) & 0xFF);
+	UART1->CR2 = (uint8_t) (UART1_CR2_TEN | UART1_CR2_REN);
 }
-
-
 
 /**
   * @}

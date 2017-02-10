@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.7)
+project(stm8 C)
+project(STM8S)
+set(CMAKE_CXX_STANDARD GNU99)
+
+add_definitions(
+        -DSKIP_TRAPS=1
+        -DSTM8S103
+        -D__SDCC__
+        -D_SDCC_
+        -DINTERRUPT=
+        -D__interrupt\(n\)=__attribute__\(\(interrupt\(n\)\)\)
+        -D__SDCC)
+
+# User program
+include_directories(User)
+include_directories(Library/SPL)
+#include_directories(Libraries/SPL/inc)
+file(GLOB_RECURSE USER_SOURCES "User/*.c" "User/*.h")
+
+file(GLOB_RECURSE LIB_SOURCES "Library/SPL/*.h")
+
+# Systemmake
+include_directories(/usr/share/sdcc/include/)
+link_directories(/usr/share/sdcc/include/)
+
+add_executable(firmware ${USER_SOURCES} ${LIB_SOURCES})

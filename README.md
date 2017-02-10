@@ -12,3 +12,6 @@ there's lots of crap I don't understand, so you'll do better just keeping it
 intact or re-implementing it).
 
 This is intended to be used with SDCC on linux.
+
+**The CMakeLists file is for CLion to stop bitching about missing includes and fake syntax errors.
+It's not used for building. Remove the .clion suffix if you want to use it**

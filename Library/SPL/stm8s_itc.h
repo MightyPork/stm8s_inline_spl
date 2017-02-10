@@ -169,8 +169,8 @@ typedef enum {
 /** @addtogroup ITC_Exported_Functions
   * @{
   */
-#if 0
 
+#if 0
 uint8_t ITC_GetCPUCC(void);
 
 void ITC_DeInit(void);
@@ -180,8 +180,8 @@ uint8_t ITC_GetSoftIntStatus(void);
 void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef PriorityValue);
 
 ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum);
-
 #endif
+
 
 
 /** @addtogroup STM8S_StdPeriph_Driver
