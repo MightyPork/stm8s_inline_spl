@@ -11,7 +11,7 @@ void main(void)
 
 	while (1) {
 		LED_Toggle();
-		printf("Time = %lu ms\r", time_ms);
+		printf("Time = %u ms\r", time_ms);
 		Delay(500);
 	}
 }
