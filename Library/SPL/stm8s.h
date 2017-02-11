@@ -240,6 +240,9 @@ typedef uint8_t u8;
 typedef enum {
 	FALSE = 0, TRUE = !FALSE
 } bool;
+//#include <stdbool.h>
+//#define TRUE true
+//#define FALSE false
 
 typedef enum {
 	RESET = 0, SET = !RESET
