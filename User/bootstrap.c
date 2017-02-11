@@ -6,7 +6,7 @@
 #include "bootstrap.h"
 
 /** Global time base */
-volatile uint32_t time_ms;
+volatile uint16_t time_ms;
 
 /**
  * Putchar for printf
@@ -61,8 +61,23 @@ INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
 /** Delay ms */
 void Delay(uint16_t ms)
 {
-	uint32_t start = time_ms;
-	while ((time_ms - start) < ms);
+	uint16_t start = time_ms;
+	uint16_t t2;
+	while (1) {
+		t2 = time_ms;
+		if ((t2 - start) >= ms) {
+			break;
+		}
+	}
+}
+
+/** Delay N seconds */
+void Delay_s(uint16_t s)
+{
+	while (s != 0) {
+		Delay(1000);
+		s--;
+	}
 }
 
 /**

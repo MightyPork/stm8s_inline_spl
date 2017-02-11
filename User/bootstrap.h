@@ -6,7 +6,7 @@
 #define STM8S_STDINIT_H
 
 /** Global timebase */
-extern volatile uint32_t time_ms;
+extern volatile uint16_t time_ms;
 
 /** Uart IRQ handler */
 void UART1_RX_IRQHandler(void) INTERRUPT(18);
