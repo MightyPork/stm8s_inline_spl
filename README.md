@@ -2,7 +2,7 @@
 
 Inlined STM8S SPL (STM8S103) for use with SDCC
 
-This is probably against the license, but who cares.
+This is probably against the license, so use at own risk.
 
 SDCC does not support --gc-sections, so we have to either use #ifdef's 
 and compile switches to remove unused code, or inline it.
